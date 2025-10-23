@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brandrise Media | Evolve Beyond The Surface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cooper+Hewitt:wght@700;800&family=Didact+Gothic&family=Bodoni+Moda:ital,opsz@0,6..96;1,6..96&family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Define brand kit variables for easier use */
+      :root {
+        --primary: #254e54; /* Deep Teal */
+        --secondary: #387e80; /* Muted Teal */
+        --accent: #90cfc4; /* Light Mint */
+        --text-base: #414d4d; /* Dark Charcoal */
+        --background: #ecede7; /* Off-White */
+        --dark-background: #1a1a1a;
+      }
+
+      /* Applying custom fonts from the brand kit */
+      body {
+        background-color: var(--background);
+        color: var(--text-base);
+        font-family: "Didact Gothic", sans-serif;
+      }
+
+      .font-heading {
+        font-family: "Cooper Hewitt", sans-serif;
+      }
+
+      .font-subheading-script {
+        font-family: "Dancing Script", cursive; /* Safira March alternative */
+      }
+
+      .font-complimentary {
+        font-family: "Bodoni Moda", serif;
+      }
+
+      /* Custom button styles based on brand kit */
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-family: "Cooper Hewitt", sans-serif;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--background);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--primary);
+        color: var(--background);
+      }
+
+      /* Enhanced navigation hover effect */
+      nav.hidden.md\:flex a:not(.btn) {
+        position: relative;
+        padding-bottom: 0.25rem;
+      }
+
+      nav.hidden.md\:flex a:not(.btn)::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      nav.hidden.md\:flex a:not(.btn):hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      /* Section spacing for the "generous white space" rule */
+      .section-padding {
+        padding: 4rem 1rem;
+      }
+      @media (min-width: 768px) {
+        .section-padding {
+          padding: 6rem 2rem;
+        }
+      }
+
+      /* Helper for the hero section height */
+      .hero-height {
+        min-height: 100vh;
+      }
+
+      /* Styles for the phone graphic in hero section */
+      .phone-mockup {
+        width: 280px;
+        height: 560px;
+        background: #1a1a1a;
+        border-radius: 40px;
+        border: 10px solid #111;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 0 2px #333;
+        position: relative;
+        transition: transform 0.5s ease;
+      }
+
+      .phone-mockup:hover {
+        transform: scale(1.05);
+      }
+
+      .phone-screen {
+        background: var(--background);
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        overflow-y: scroll;
+        padding: 1rem 0.5rem;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        color: var(--text-base); /* Make text visible on light background */
+      }
+
+      .phone-screen::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+
+      .phone-notch {
+        position: absolute;
+        top: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 20px;
+        background: #111;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        z-index: 20;
+      }
+
+      /* Small instagram cards for the phone */
+      .phone-insta-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1rem;
+      }
+      .phone-insta-card .p-header {
+        padding: 8px;
+      }
+      .phone-insta-card .p-header img {
+        height: 28px;
+        width: 28px;
+      }
+      .phone-insta-card .p-header .font-bold {
+        font-size: 12px;
+      }
+      .phone-insta-card .p-footer {
+        padding: 8px;
+      }
+      .phone-insta-card .p-footer .icon {
+        width: 18px;
+        height: 18px;
+      }
+      .phone-insta-card .p-footer .likes {
+        font-size: 12px;
+      }
+      .phone-insta-card .p-footer .caption {
+        font-size: 12px;
+      }
+
+      /* Scroll Down Indicator */
+      .scroll-down-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0.8;
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-down-indicator span {
+        color: var(--background);
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        font-family: "Didact Gothic", sans-serif;
+      }
+
+      .scroll-down-indicator svg {
+        color: var(--background);
+        width: 24px;
+        height: 24px;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      .philosophy-section {
+        background-color: var(--dark-background);
+        color: var(--background);
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2390cfc4' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Header & Navigation -->
+    <header class="bg-transparent absolute top-0 left-0 right-0 z-20 py-4">
+      <div
+        class="container mx-auto max-w-6xl px-4 flex justify-between items-center"
+      >
+        <a href="#" class="flex items-center space-x-3">
+          <img
+            src="https://brandrisemedia.net/assets/logo_transparent.png"
+            alt="Brandrise Media Logo"
+            class="h-12 w-auto"
+          />
+          <span
+            class="font-heading text-xl hidden sm:inline font-extrabold uppercase tracking-wider"
+            style="color: var(--accent)"
+            >Brandrise</span
+          >
+        </a>
+        <nav class="hidden md:flex items-center space-x-8 text-white">
+          <a
+            href="#services"
+            class="hover:text-[var(--accent)] transition-colors"
+            >Services</a
+          >
+          <a
+            href="#philosophy"
+            class="hover:text-[var(--accent)] transition-colors"
+            >Our Philosophy</a
+          >
+          <a href="#work" class="hover:text-[var(--accent)] transition-colors"
+            >Our Work</a
+          >
+          <a href="#" class="hover:text-[var(--accent)] transition-colors"
+            >Freebies</a
+          >
+          <a
+            href="https://brandrisemedia.net/blog/"
+            target="_blank"
+            class="hover:text-[var(--accent)] transition-colors font-bold"
+            >Blog</a
+          >
+          <a
+            href="#contact"
+            class="btn btn-secondary !border-white !text-white hover:!bg-white hover:!text-[var(--primary)]"
+            >Get in Touch</a
+          >
+        </nav>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden text-[var(--background)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[var(--background)]">
+        <a
+          href="#services"
+          class="block text-center py-3 px-4 hover:bg-[var(--accent)]"
+          >Services</a
+        >
+        <a
+          href="#philosophy"
+          class="block text-center py-3 px-4 hover:bg-[var(--accent)]"
+          >Our Philosophy</a
+        >
+        <a
+          href="#work"
+          class="block text-center py-3 px-4 hover:bg-[var(--accent)]"
+          >Our Work</a
+        >
+        <a href="#" class="block text-center py-3 px-4 hover:bg-[var(--accent)]"
+          >Freebies</a
+        >
+        <a
+          href="https://brandrisemedia.net/blog/"
+          target="_blank"
+          class="block text-center py-3 px-4 hover:bg-[var(--accent)] font-bold"
+          >Blog</a
+        >
+        <a
+          href="#contact"
+          class="block text-center py-4 px-4 bg-[var(--primary)] text-[var(--background)]"
+          >Get in Touch</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="hero-height flex items-center justify-center relative overflow-hidden"
+      >
+        <!-- Video Background -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+          <video
+            id="hero-video-bg"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+          >
+            <source
+              src="https://brandrisemedia.net/assets/video_slides.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <!-- Dark Overlay -->
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-1"
+        ></div>
+
+        <div
+          class="container mx-auto max-w-6xl relative z-10 text-white px-4 py-12"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Left Column: About Us & Phone -->
+            <div class="text-center md:text-left">
+              <p
+                class="font-heading uppercase tracking-widest text-lg"
+                style="color: var(--accent)"
+              >
+                From low-key to legendary.
+              </p>
+              <h1 class="font-heading text-5xl md:text-7xl font-extrabold my-4">
+                We Don't Just Build Brands. <br />We Build Legacies.
+              </h1>
+              <p class="text-xl max-w-xl opacity-90 leading-relaxed">
+                Branding isn’t skin-deep; it’s chemistry. While others focus on
+                face value, we dig into the DNA of your business—the atoms of
+                strategy, molecules of design, and the spark of storytelling
+                that brings a brand to life.
+              </p>
+              <a href="#services" class="btn btn-primary mt-8 text-lg"
+                >Discover How</a
+              >
+            </div>
+
+            <!-- Right Column: Phone Graphic -->
+            <div class="flex justify-center items-center">
+              <div class="phone-mockup">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                  <!-- Instagram Post 1 -->
+                  <div class="phone-insta-card">
+                    <div
+                      class="p-header flex items-center space-x-2 border-b border-gray-100"
+                    >
+                      <img
+                        src="https://brandrisemedia.net/assets/logo_transparent.png"
+                        alt="Brandrise profile picture"
+                        class="rounded-full object-cover"
+                      />
+                      <span class="font-bold">_brandrisemedia</span>
+                    </div>
+                    <img
+                      src="https://brandrisemedia.net/assets/posts/post1.jpg"
+                      alt="Instagram post preview"
+                      class="w-full h-auto"
+                    />
+                    <div class="p-footer text-left">
+                      <div class="flex items-center space-x-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="red"
+                          class="icon"
+                        >
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="icon"
+                        >
+                          <path
+                            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <p class="likes font-bold mt-2">1,251 likes</p>
+                      <p class="caption mt-1">
+                        <span class="font-bold">_brandrisemedia</span> From
+                        concept to creation...
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Instagram Post 2 -->
+                  <div class="phone-insta-card">
+                    <div
+                      class="p-header flex items-center space-x-2 border-b border-gray-100"
+                    >
+                      <img
+                        src="https://brandrisemedia.net/assets/logo_transparent.png"
+                        alt="Brandrise profile picture"
+                        class="rounded-full object-cover"
+                      />
+                      <span class="font-bold">_brandrisemedia</span>
+                    </div>
+                    <img
+                      src="https://brandrisemedia.net/assets/posts/post2.jpg"
+                      alt="Instagram post preview"
+                      class="w-full h-auto"
+                    />
+                    <div class="p-footer text-left">
+                      <div class="flex items-center space-x-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="red"
+                          class="icon"
+                        >
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="icon"
+                        >
+                          <path
+                            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <p class="likes font-bold mt-2">2,583 likes</p>
+                      <p class="caption mt-1">
+                        <span class="font-bold">_brandrisemedia</span> It's not
+                        just about ads, it's about connection.
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Instagram Post 4 -->
+                  <div class="phone-insta-card">
+                    <div
+                      class="p-header flex items-center space-x-2 border-b border-gray-100"
+                    >
+                      <img
+                        src="https://brandrisemedia.net/assets/logo_transparent.png"
+                        alt="Brandrise profile picture"
+                        class="rounded-full object-cover"
+                      />
+                      <span class="font-bold">_brandrisemedia</span>
+                    </div>
+                    <img
+                      src="https://brandrisemedia.net/assets/posts/post4.jpg"
+                      alt="Instagram post preview"
+                      class="w-full h-auto"
+                    />
+                    <div class="p-footer text-left">
+                      <div class="flex items-center space-x-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="red"
+                          class="icon"
+                        >
+                          <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                          ></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="icon"
+                        >
+                          <path
+                            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <p class="likes font-bold mt-2">3,129 likes</p>
+                      <p class="caption mt-1">
+                        <span class="font-bold">_brandrisemedia</span> Rise
+                        above the noise.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-down-indicator z-10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+          <span>Scroll Down</span>
+        </div>
+      </section>
+
+      <!-- Our Philosophy Section -->
+      <section id="philosophy" class="section-padding philosophy-section">
+        <div class="container mx-auto max-w-4xl">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left"
+          >
+            <div>
+              <h4
+                class="font-heading text-2xl uppercase mb-4"
+                style="color: var(--accent)"
+              >
+                Our Vision
+              </h4>
+              <p class="opacity-90">
+                To redefine how brands grow and connect. We want every brand to
+                evolve beyond the surface, combining creativity and strategy to
+                make meaningful impact that lasts.
+              </p>
+            </div>
+            <div>
+              <h4
+                class="font-heading text-2xl uppercase mb-4"
+                style="color: var(--accent)"
+              >
+                Our Mission
+              </h4>
+              <p class="opacity-90">
+                To help businesses rise above appearances by uncovering the
+                strategy, story, and structure that fuel lasting growth. We mix
+                creative thinking with data-driven insight to design brands that
+                don’t just look good but actually work. Every brand we touch is
+                guided to evolve beyond the surface.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="section-padding bg-[var(--background)]">
+        <div class="container mx-auto max-w-6xl text-center">
+          <h2
+            class="font-subheading-script text-4xl"
+            style="color: var(--secondary)"
+          >
+            Our Expertise
+          </h2>
+          <h3
+            class="font-heading text-3xl md:text-4xl uppercase mt-2"
+            style="color: var(--primary)"
+          >
+            What We Do Best
+          </h3>
+          <p class="mt-4 max-w-2xl mx-auto">
+            We offer a complete suite of services designed for one thing:
+            transformative growth for your brand.
+          </p>
+          <div
+            class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            <!-- Service 1: Website Creation -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/web_creation.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Website Creation
+              </h4>
+              <p class="mt-2">
+                Building beautiful, responsive, and high-performing websites
+                that serve as the digital home for your brand.
+              </p>
+            </div>
+            <!-- Service 2: Meta Ads -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/ads.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Meta Ads
+              </h4>
+              <p class="mt-2">
+                Managing targeted ad campaigns on Facebook and Instagram to
+                reach your ideal customers and maximize ROI.
+              </p>
+            </div>
+            <!-- Service 3: SEO -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/seo.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                SEO
+              </h4>
+              <p class="mt-2">
+                Optimizing your online presence to rank higher on search
+                engines, driving organic traffic and visibility.
+              </p>
+            </div>
+            <!-- Service 4: Content Creation -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/content_creation_updated.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Content Creation
+              </h4>
+              <p class="mt-2">
+                Producing high-quality, engaging content—from graphics to
+                videos—that stops the scroll and starts conversations.
+              </p>
+            </div>
+            <!-- Service 5: VA Services -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/va_services.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Virtual Assistant Services
+              </h4>
+              <p class="mt-2">
+                Secure dedicated, remote assistants to manage administrative
+                tasks, scheduling, data entry, and project coordination,
+                maximizing your team's efficiency.
+              </p>
+            </div>
+            <!-- Service 6: Business Process Automation -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/automation.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Business Process Automation
+              </h4>
+              <p class="mt-2">
+                Harness the power of AI to streamline core business operations.
+                We automate tedious and repetitive processes, freeing up your
+                team to focus on strategic growth and critical tasks.
+              </p>
+            </div>
+            <!-- Service 4: Content Creation -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/content_creation_updated.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Content Creation
+              </h4>
+              <p class="mt-2">
+                Producing high-quality, engaging content—from graphics to
+                videos—that stops the scroll and starts conversations.
+              </p>
+            </div>
+            <!-- Service 4: Content Creation -->
+            <div
+              class="bg-white/40 p-8 rounded-lg shadow-lg text-left transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+            >
+              <!-- Custom Icon from URL -->
+              <img
+                src="https://brandrisemedia.net/assets/home_icons/content_creation_updated.png"
+                alt="Content Creation Icon"
+                class="mb-4 w-12 h-12 object-contain"
+                onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=Icon'"
+              />
+              <h4
+                class="font-heading text-xl font-bold"
+                style="color: var(--primary)"
+              >
+                Content Creation
+              </h4>
+              <p class="mt-2">
+                Producing high-quality, engaging content—from graphics to
+                videos—that stops the scroll and starts conversations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Feed Section -->
+      <section id="blog" class="section-padding bg-[var(--background)]">
+        <div class="container mx-auto max-w-6xl text-center">
+          <h2
+            class="font-subheading-script text-4xl"
+            style="color: var(--secondary)"
+          >
+            From The Playbook
+          </h2>
+          <h3
+            class="font-heading text-3xl md:text-4xl uppercase mt-2"
+            style="color: var(--primary)"
+          >
+            Latest Insights
+          </h3>
+          <p class="mt-4 max-w-2xl mx-auto">
+            Stay ahead of the curve with our latest articles, strategies, and
+            case studies from the blog.
+          </p>
+          <div
+            id="rss-feed-container"
+            class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- RSS Feed posts will be injected here by JavaScript -->
+            <p id="rss-loading" class="col-span-full">
+              Loading latest posts...
+            </p>
+          </div>
+          <div class="mt-12">
+            <a
+              href="https://brandrisemedia.net/blog/"
+              target="_blank"
+              class="btn btn-primary"
+              >Visit The Blog</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Client Showcase Section -->
+      <section
+        id="work"
+        class="section-padding"
+        style="background-color: #ffffff40"
+      >
+        <div class="container mx-auto max-w-6xl text-center">
+          <h2
+            class="font-subheading-script text-4xl"
+            style="color: var(--secondary)"
+          >
+            Our Work
+          </h2>
+          <h3
+            class="font-heading text-3xl md:text-4xl uppercase mt-2"
+            style="color: var(--primary)"
+          >
+            Client Showcase
+          </h3>
+          <p class="mt-4 max-w-2xl mx-auto">
+            We're proud of the results we've delivered. Here are a few brands
+            we've helped rise to legendary status.
+          </p>
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1 with Video -->
+            <div
+              id="showcase-card-1"
+              class="bg-white/40 rounded-lg shadow-lg overflow-hidden group"
+            >
+              <div class="relative aspect-video">
+                <video
+                  id="showcase-video-1"
+                  muted
+                  loop
+                  playsinline
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                >
+                  <source
+                    src="https://brandrisemedia.net/assets/sample_work_1.webm"
+                    type="video/webm"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="https://sample-page.brandrisemedia.net/"
+                    target="_blank"
+                    class="btn btn-primary"
+                    >Visit Website</a
+                  >
+                </div>
+              </div>
+              <div class="p-6 text-left">
+                <h4
+                  class="font-heading text-xl font-bold"
+                  style="color: var(--primary)"
+                >
+                  Vortex Auto
+                </h4>
+                <p class="mt-2">
+                  A robust e-commerce solution for a family-owned auto parts
+                  shop, designed to streamline online sales and customer
+                  service.
+                </p>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="bg-white/40 rounded-lg shadow-lg overflow-hidden group">
+              <div class="relative">
+                <img
+                  src="https://placehold.co/600x400/387e80/ecede7?text=Artisan+Roast"
+                  alt="Artisan Roast Website"
+                  class="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a href="#" target="_blank" class="btn btn-primary"
+                    >Visit Website</a
+                  >
+                </div>
+              </div>
+              <div class="p-6 text-left">
+                <h4
+                  class="font-heading text-xl font-bold"
+                  style="color: var(--primary)"
+                >
+                  Artisan Roast Co.
+                </h4>
+                <p class="mt-2">
+                  An engaging brand website with subscription services for a
+                  craft coffee roaster, built to tell their unique story.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact CTA Section -->
+      <section
+        id="contact"
+        class="section-padding text-center relative overflow-hidden"
+      >
+        <!-- Video Background -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+          <video
+            id="contact-video-bg"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+            style="filter: grayscale(100%) brightness(1.8)"
+          >
+            <source
+              src="https://brandrisemedia.net/assets/paper_texture.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <!-- Overlay to improve text readability -->
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-[var(--background)] opacity-60 z-1"
+        ></div>
+        <div class="container mx-auto max-w-3xl relative z-10">
+          <h2
+            class="font-subheading-script text-4xl"
+            style="color: var(--secondary)"
+          >
+            Ready for a Change?
+          </h2>
+          <h3
+            class="font-heading text-3xl md:text-4xl uppercase mt-2"
+            style="color: var(--primary)"
+          >
+            Let's Build Your Legacy
+          </h3>
+          <p class="mt-4 max-w-2xl mx-auto">
+            Your journey from overlooked to influential starts with a simple
+            conversation. Reach out today for a complimentary consultation and
+            let's discuss how we can elevate your brand.
+          </p>
+          <a
+            href="mailto:hello@brandreise.media"
+            class="btn btn-primary mt-10 text-lg"
+            >Schedule Your Free Consultation</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8" style="background-color: var(--text-base)">
+      <div
+        class="container mx-auto max-w-6xl text-center"
+        style="color: var(--background)"
+      >
+        <img
+          src="https://brandrisemedia.net/assets/logo_transparent.png"
+          alt="Brandrise Media Logo"
+          class="h-16 w-auto mx-auto"
+        />
+        <p class="font-heading text-xl mt-4">Brandrise Media</p>
+        <div class="flex justify-center space-x-6 mt-4 mb-4">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line
+                x1="17.5"
+                y1="6.5"
+                x2="17.51"
+                y2="6.5"
+                stroke-width="2"
+                stroke="var(--text-base)"
+              ></line>
+            </svg>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <!-- X (Twitter) --><a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M18 6 6 18M6 6l12 12"
+                stroke-width="2.5"
+                stroke="var(--background)"
+              />
+            </svg>
+          </a>
+          <!-- TikTok --><a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M16 8a4 4 0 1 1-4.24-3.85 4 4 0 1 1 0 7.7 4 4 0 1 1 4.24 3.85v-7.7Z"
+              />
+            </svg>
+          </a>
+          <!-- YouTube --><a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M2.5 17a24.12 24.12 0 0 1 0-10C2.5 6 7.5 4 12 4s9.5 2 9.5 3a24.12 24.12 0 0 1 0 10c0 1-4.5 3-9.5 3s-9.5-2-9.5-3Z"
+              />
+              <path d="m10 15 5-3-5-3z" />
+            </svg>
+          </a>
+        </div>
+        <p class="mt-2 text-sm opacity-80">
+          &copy; 2025 Brandrise Media. All Rights Reserved.
+        </p>
+        <p class="mt-2 text-sm opacity-80 font-complimentary italic">
+          Evolve beyond the surface.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Simple script for mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = mobileMenu.getElementsByTagName("a");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when a link is clicked
+      for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      }
+
+      // Set playback speed for contact section video
+      const contactVideo = document.getElementById("contact-video-bg");
+      if (contactVideo) {
+        contactVideo.playbackRate = 0.25;
+      }
+
+      // Set playback speed for hero section video
+      const heroVideo = document.getElementById("hero-video-bg");
+      if (heroVideo) {
+        heroVideo.playbackRate = 0.5;
+      }
+
+      // --- Add hover-to-play functionality for the showcase video
+      const showcaseCard1 = document.getElementById("showcase-card-1");
+      const showcaseVideo1 = document.getElementById("showcase-video-1");
+
+      if (showcaseCard1 && showcaseVideo1) {
+        showcaseCard1.addEventListener("mouseenter", () => {
+          showcaseVideo1.play();
+        });
+
+        showcaseCard1.addEventListener("mouseleave", () => {
+          showcaseVideo1.pause();
+          showcaseVideo1.currentTime = 0; // Rewind to the start
+        });
+      }
+
+      // --- Improved Scroll Hijacking for Hero Section ---
+      const phoneScreen = document.querySelector(".phone-screen");
+      const heroSection = document.querySelector(".hero-height");
+      let lastTouchY = 0;
+      let isTouching = false;
+
+      // This is the core logic for deciding whether to scroll the phone or the page.
+      function handleScrollHijack(deltaY) {
+        // We only apply this special scrolling logic when the main page is at the very top.
+        if (window.scrollY < 1) {
+          const isScrollingDown = deltaY > 0;
+          const isScrollingUp = deltaY < 0;
+
+          // Check if the phone's content has reached its end or its beginning.
+          // A small tolerance (1px) is used to handle potential rounding issues.
+          const isPhoneAtBottom =
+            phoneScreen.scrollTop + phoneScreen.clientHeight >=
+            phoneScreen.scrollHeight - 1;
+          const isPhoneAtTop = phoneScreen.scrollTop < 1;
+
+          // HIJACK CONDITION:
+          // If we're scrolling down BUT the phone content isn't at the bottom yet, OR
+          // if we're scrolling up BUT the phone content isn't at the top yet,
+          // then we should scroll the phone, not the page.
+          if (
+            (isScrollingDown && !isPhoneAtBottom) ||
+            (isScrollingUp && !isPhoneAtTop)
+          ) {
+            phoneScreen.scrollTop += deltaY;
+            return true; // Return true to signal that the scroll was "hijacked".
+          }
+        }
+        return false; // Return false to allow the page to scroll normally.
+      }
+
+      // Listener for MOUSE WHEEL events (Desktop)
+      window.addEventListener(
+        "wheel",
+        function (event) {
+          // If the hijack function handles the scroll, we prevent the page from scrolling too.
+          if (handleScrollHijack(event.deltaY)) {
+            event.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      // Listener for TOUCH START events (Mobile/Tablet)
+      window.addEventListener(
+        "touchstart",
+        function (event) {
+          // Only engage the hijack logic if the touch starts within the hero section.
+          if (heroSection.contains(event.target)) {
+            isTouching = true;
+            lastTouchY = event.touches[0].clientY;
+          }
+        },
+        { passive: false }
+      );
+
+      // Listener for TOUCH MOVE events (Mobile/Tablet)
+      window.addEventListener(
+        "touchmove",
+        function (event) {
+          if (!isTouching) return;
+
+          const currentTouchY = event.touches[0].clientY;
+          // Calculate the change in touch position to determine scroll direction and speed.
+          const deltaY = lastTouchY - currentTouchY;
+          lastTouchY = currentTouchY;
+
+          // If the hijack function handles the scroll, prevent the default pull-to-refresh/page scroll.
+          if (handleScrollHijack(deltaY)) {
+            event.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      // Listeners to reset the touch state when the user lifts their finger.
+      window.addEventListener(
+        "touchend",
+        function () {
+          isTouching = false;
+        },
+        { passive: false }
+      );
+      window.addEventListener(
+        "touchcancel",
+        function () {
+          isTouching = false;
+        },
+        { passive: false }
+      );
+
+      // --- RSS Feed Loader ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const feedContainer = document.getElementById("rss-feed-container");
+        const loadingIndicator = document.getElementById("rss-loading");
+        // Using a CORS proxy to fetch the feed from the client side.
+        const feedUrl = "https://brandrisemedia.net/blog/feed/";
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(
+          feedUrl
+        )}`;
+
+        fetch(proxyUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok: ${response.statusText}`
+              );
+            }
+            return response.text();
+          })
+          .then((str) =>
+            new window.DOMParser().parseFromString(str, "text/xml")
+          )
+          .then((data) => {
+            loadingIndicator.style.display = "none"; // Hide loading indicator
+            const items = data.querySelectorAll("item");
+            let html = "";
+            const maxPosts = 3;
+
+            for (let i = 0; i < Math.min(items.length, maxPosts); i++) {
+              const item = items[i];
+              const title = item.querySelector("title").textContent;
+              const link = item.querySelector("link").textContent;
+              const pubDate = new Date(
+                item.querySelector("pubDate").textContent
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
+
+              // Extract description and create a snippet
+              const descriptionNode = item.querySelector("description");
+              let description = descriptionNode
+                ? descriptionNode.textContent
+                : "";
+
+              // Remove HTML tags and create a clean text snippet.
+              const tempDiv = document.createElement("div");
+              tempDiv.innerHTML = description;
+              let textContent = tempDiv.textContent || tempDiv.innerText || "";
+              const snippet =
+                textContent.trim().split(" ").slice(0, 20).join(" ") + "...";
+
+              // --- Improved Image Finding Logic ---
+              let imageUrl =
+                "https://placehold.co/600x400/254e54/ecede7?text=Brandrise"; // Default placeholder
+
+              // 1. Prioritize <media:content> for the featured image
+              const mediaContent = item.querySelector(
+                "media\\:content, content"
+              );
+              if (mediaContent && mediaContent.getAttribute("url")) {
+                imageUrl = mediaContent.getAttribute("url");
+              }
+              // 2. Fallback: Search for the first <img> tag in the content
+              else {
+                const contentNode = item.querySelector(
+                  "content\\:encoded, encoded"
+                );
+                if (contentNode) {
+                  const srcMatch = contentNode.textContent.match(
+                    /<img[^>]+src="([^">]+)"/
+                  );
+                  if (srcMatch && srcMatch[1]) {
+                    imageUrl = srcMatch[1];
+                  }
+                }
+              }
+
+              html += `
+                            <div class="bg-white/40 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                                <a href="${link}" target="_blank" class="block">
+                                    <img src="${imageUrl}" alt="Blog post image for ${title}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/254e54/ecede7?text=Image+Not+Found';">
+                                </a>
+                                <div class="p-6 text-left flex flex-col flex-grow">
+                                    <p class="text-sm opacity-80 mb-2">${pubDate}</p>
+                                    <h4 class="font-heading text-xl font-bold flex-grow" style="color: var(--primary);">
+                                        <a href="${link}" target="_blank" class="hover:text-[var(--secondary)] transition-colors">${title}</a>
+                                    </h4>
+                                    <p class="mt-2 text-sm flex-grow">${snippet}</p>
+                                    <div class="mt-4">
+                                        <a href="${link}" target="_blank" class="font-bold text-[var(--secondary)] hover:text-[var(--primary)] transition-colors">Read More &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+            }
+            feedContainer.innerHTML = html;
+          })
+          .catch((error) => {
+            console.error("Error fetching or parsing RSS feed:", error);
+            loadingIndicator.textContent =
+              "Could not load the latest posts. Please visit the blog directly.";
+          });
+      });
+    </script>
+  </body>
+</html>
